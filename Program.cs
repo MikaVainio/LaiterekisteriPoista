@@ -50,7 +50,6 @@ namespace Laitekirjasto
 
     }
 
-
     // Pääohjelman luokka, josta tulee Program.exe
     internal class Program
     {
