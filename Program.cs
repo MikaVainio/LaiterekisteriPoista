@@ -153,51 +153,45 @@ namespace Laitekirjasto
         // ---------------------------
         static void Main(string[] args)
         {
-             // Olioiden luominen ja metodien testaus
-            // -------------------------------------
+            // Ikuinen silmukka pääohjelman käynnissä pitämiseen
+            while (true)
+            {
+                Console.WriteLine("Minkä laitteen tietot tallenetaan?");
+                Console.Write("1 tietokone, 2 tabletti ");
+                string type = Console.ReadLine();
 
-            // Luodaan uusi tietokone, joka perii laiteluokan (Device) ominaisuudet ja metodit
+                // Luodaan Switch-Case-rakenne vaihtoehdoille
 
-            Computer tietokone1 = new Computer();
+                switch (type)
+                {
+                    case "1":
+                        Console.Write("Nimi: ");
+                        string computerName = Console.ReadLine();
+                        Computer computer = new Computer();
+                        break;
 
-            // Asetetaan ensimmäisen tietokoneen ominaisuuksien arvot
-            tietokone1.ProcessorType = "Intel I7";
-            tietokone1.AmountRam = 16;
-            tietokone1.PurchaseDate = "15.2.2024";
-            tietokone1.Price = 850.00d;
-            tietokone1.Warranty = 36;
-
-            Console.WriteLine("Tietokone 1");
-            Console.WriteLine("===========");
-            tietokone1.ShowPurchaseInfo();
+                    case "2":
+                        Console.Write("Nimi: ");
+                        string tabletName = Console.ReadLine();
+                        Tablet tablet = new Tablet();
+                        break;
 
 
-            // Luodaan uusi nimetty tietokone 
-            Computer tietokone2 = new Computer("Mikan läppäri");
-            tietokone2.ProcessorType = "Intel Core i7 vPro";
-            tietokone2.AmountRam = 32;
+                    default:
+                        Console.WriteLine("Virheellinen valinta, anna pelkkä numero");
+                        break;
+                }
 
-            Console.WriteLine("Tietokone 2");
-            Console.WriteLine("===========");
-            tietokone2.ShowBasicTechnicalInfo();
-
-            // Luodaan testiolio tabletille
-
-            Tablet tabletti1 = new Tablet("Mikan iPad");
-            tabletti1.PurchaseDate = "1.10.2022";
-            tabletti1.OperatingSystem = "IOS";
-            tabletti1.StylusEnabled = true;
-
-            // Näytetään tietoja metodien avulla
-            
-            tabletti1.ShowPurchaseInfo();
-
-            
-            tabletti1.ShowBasicTechnicalInfo();
-
-            Console.WriteLine("Tabletti 1");
-            Console.WriteLine("==========");
-            tabletti1.TabletInfo();
+                // Ohelman sulkeminen: poistutaan ikuisesta silmukasta
+                Console.WriteLine("Haluatko jatkaa K/e");
+                string continueAnswer = Console.ReadLine();
+                continueAnswer = continueAnswer.Trim();
+                continueAnswer = continueAnswer.ToLower();
+                if (continueAnswer == "e")
+                {
+                    break;
+                }
+            }
 
 
             // Pidetään ikkuna auki, kunnes käyttäjä painaa <enter>
