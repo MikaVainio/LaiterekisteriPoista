@@ -120,10 +120,10 @@ namespace Laitekirjasto
         // Kentät ja ominaisuudet
         // ----------------------
 
-        string operatingSystem;
-        public string OperatingSystem { get {  return operatingSystem; } set {  operatingSystem = value; } }
-        bool stylusEnabled = false;
-        public bool StylusEnabled { get {  return stylusEnabled; } set {  stylusEnabled = value; } }
+        string operatingSystem; // Kenttä -> pieni alkukirjain
+        public string OperatingSystem { get {  return operatingSystem; } set {  operatingSystem = value; } } // Ominaisuus -> iso alkukirjain
+        bool stylusEnabled = false; // Kynätuen kenttä
+        public bool StylusEnabled { get {  return stylusEnabled; } set {  stylusEnabled = value; } } // Kynätuki-ominaisuus
 
         // Konstruktortit
         // --------------
@@ -165,15 +165,35 @@ namespace Laitekirjasto
                 switch (type)
                 {
                     case "1":
+
+                        // Kysytään käyttäjältä tietokoneen tiedot
+                        // ja luodaan uusi tietokoneolio
                         Console.Write("Nimi: ");
                         string computerName = Console.ReadLine();
-                        Computer computer = new Computer();
+                        Computer computer = new Computer(computerName);
+                        Console.Write("Ostopäivä: ");
+                        computer.PurchaseDate = Console.ReadLine();
+                        Console.Write("Hankintahinta: ");
+                        computer.Price = double.Parse(Console.ReadLine());
+                        Console.Write("Takuun kesto kuukausina: ");
+                        computer.Warranty = int.Parse(Console.ReadLine());
+                        Console.Write("Prosessorin tyyppi: ");
+                        computer.ProcessorType = Console.ReadLine();
+                        Console.Write("Keskumuistin määrä (GB): ");
+                        computer.AmountRam = int.Parse(Console.ReadLine());
+                        Console.Write("Tallennuskapasiteetti (GB): ");
+                        computer.StorageCapacity = int.Parse(Console.ReadLine());
+
+                        // Näytetään olion tiedot metodien avulla
+                        computer.ShowPurchaseInfo();
+                        computer.ShowBasicTechnicalInfo();
+
                         break;
 
                     case "2":
                         Console.Write("Nimi: ");
                         string tabletName = Console.ReadLine();
-                        Tablet tablet = new Tablet();
+                        Tablet tablet = new Tablet(tabletName);
                         break;
 
 
