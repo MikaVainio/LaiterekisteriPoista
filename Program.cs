@@ -174,15 +174,62 @@ namespace Laitekirjasto
                         Console.Write("Ostopäivä: ");
                         computer.PurchaseDate = Console.ReadLine();
                         Console.Write("Hankintahinta: ");
-                        computer.Price = double.Parse(Console.ReadLine());
+                        string price = Console.ReadLine();
+
+                        try
+                        {
+                            computer.Price = double.Parse(price);
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Console.WriteLine("Virheellinen hintatieto, käytä desimaalipilkkua (,)" + ex.Message);
+
+                            break;
+                        }
+
                         Console.Write("Takuun kesto kuukausina: ");
-                        computer.Warranty = int.Parse(Console.ReadLine());
+                        string warranty = Console.ReadLine();
+
+                        try
+                        {
+                           computer.Warranty = int.Parse(warranty);
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Console.WriteLine("Virheellinen takuutieto, vain kuukausien määrä kokonaislukuna " + ex.Message);
+                        }
+
                         Console.Write("Prosessorin tyyppi: ");
                         computer.ProcessorType = Console.ReadLine();
                         Console.Write("Keskumuistin määrä (GB): ");
-                        computer.AmountRam = int.Parse(Console.ReadLine());
+                        string amountRam = Console.ReadLine();
+
+                        try
+                        {
+                            computer.AmountRam = int.Parse(amountRam);
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Console.WriteLine("Virheellinen muistin määrä, vain kokonaisluvut sallittu " + ex.Message);
+                        }
+
                         Console.Write("Tallennuskapasiteetti (GB): ");
-                        computer.StorageCapacity = int.Parse(Console.ReadLine());
+                        string storageCapacity = Console.ReadLine();
+
+                        try
+                        {
+                            computer.StorageCapacity = int.Parse            (storageCapacity);
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Console.WriteLine("Virheellinen tallennustilan koko, vain kokonaisluvut sallittu " + ex.Message);
+                        }
+
+                        
 
                         // Näytetään olion tiedot metodien avulla
                         computer.ShowPurchaseInfo();
