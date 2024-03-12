@@ -8,3 +8,6 @@
 * Vaihtoehtona voi tallentaa objektit jonoon tai pinoon.
 * Tulosta ruudulle vektorissa, jonossa tai pinossa olevien alkioiden määrä.
 
+## Keskiviikko 13.3
+* Lisää edellisen viikon koodiin mahdollisuus serialisoida tietokoneet tiedostoon
+* Lisää toiminto, joka lukee serialisoidut laitetiedot tiedostosta ja tulostaa ne ruudulle.
