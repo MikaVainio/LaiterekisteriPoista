@@ -1,6 +1,6 @@
 # Tehtävät
 
-## Keskiviikko 28.3
+## Keskiviikko 28.2
 * Lisää `Device`-luokkaan metodi, joka laskee viimeisen takuun voimassaolopäivän.
 * Lisää tarvittavat syötteen tarkistukset pääohjelmaan.
 * Luo objektivektorit tietokoneille ja tableteille.
