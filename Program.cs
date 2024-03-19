@@ -15,8 +15,9 @@ namespace Laitekirjasto
 {
     // LUOKKAMÄÄRITYKSET
     // =================
-    
+
     // Yleinen laiteluokka, yliluokka tietokoneille, tableteille ja puhelimille
+    [Serializable]
     class Device
     {
         // Kentät ja ominaisuudet
@@ -124,6 +125,7 @@ namespace Laitekirjasto
 
     // Tietokoneiden luokka, perii ominaisuuksia ja metodeja laiteluokasta Device
 
+    [Serializable]
     class Computer : Device
     {
         
@@ -139,6 +141,7 @@ namespace Laitekirjasto
     }
 
     // Tablettien luokka, perii laiteluokan
+    [Serializable]
     class Tablet : Device
     {
         // Kentät ja ominaisuudet
@@ -183,8 +186,7 @@ namespace Laitekirjasto
             // Määritellään file stream tietokoneiden tietojen tallennusta varten
             Stream writeStream = new FileStream("ComputerData.dat", FileMode.Create, FileAccess.Write);
 
-            // Määritellään file stream tietokoneiden tietojen lukemista varten
-
+            
 
             // Luodaan vektorit ja laskurit niiden alkioille
             Computer[] computers = new Computer[10];
@@ -327,9 +329,17 @@ namespace Laitekirjasto
                     Console.WriteLine("Tietokonevektorissa on " + computers.Length + " alkiota");
 
                     Console.WriteLine("Pinossa on nyt " + computerStack.Count + " tietokonetta");
-                    break;
+
 
                     // Tallennetaan koneiden tiedot tiedostoon serialisoimalla
+
+                    formatter.Serialize(writeStream, computers);
+                    writeStream.Close();
+
+                    // Määritellään file stream tietokoneiden tietojen lukemista varten
+                    //Stream readStream = new FileStream("ComputerData.dat", FileMode.Open, FileAccess.Read); 
+                    break;
+
 
 
                 }
