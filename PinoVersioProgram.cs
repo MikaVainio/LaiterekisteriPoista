@@ -181,7 +181,7 @@ namespace Laitekirjasto
         // ---------------------------
         static void Main(string[] args)
         {
-            // Määritellään binääridatan muodostaja serialisointia varte
+            // Määritellään binääridatan muodostaja serialisointia varten
             IFormatter formatter = new BinaryFormatter();
 
             // Määritellään toinen file stream pinotallenusta varten
