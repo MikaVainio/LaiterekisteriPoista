@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 // Libraries needed to access SQL Server
 using System.Data;
 using System.Data.SqlClient;
+
+// Libraries used when converting dates
 using System.Globalization;
-using System.Collections;
+
 
 namespace DeviceDb
 {
@@ -167,6 +169,8 @@ namespace DeviceDb
     // ===========
     internal class Program
     {
+        
+        
         static void Main(string[] args)
         {
             // For ever loop to run the program
@@ -267,6 +271,25 @@ namespace DeviceDb
 
                         // Add the computer to Device table
                         Console.WriteLine("Lisätään tietokone Laite-tauluun");
+
+                        // Create a connection to DB server
+                        // --------------------------------
+                        // Conncection string to the database using Windows authentication
+                        string connectionString = "Data Source=DESKTOP-2Q0KJ7B\\Initial Catalog=SQLEXPRESS;Laiterekisteri;Integrated Security=True";
+
+                        string insertCommand = "INSERT INTO dbo.Laite";
+
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            connection.Open();
+                            SqlCommand command = new SqlCommand(insertCommand, connection);
+                        }
+                       
+
+
+                        // Build a SQL clause to insert data
+
+                        // Execute the sql clause
                         
                         break;
 
